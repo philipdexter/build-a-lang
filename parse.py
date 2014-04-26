@@ -82,6 +82,7 @@ def translate(file='hello_world.py', lang_def=None):
                 indentation -= 1
                 out_lines.append('}')
             out_lines.append(line)
+        python_code = '\n'.join(out_lines)
 
     return python_code
 
