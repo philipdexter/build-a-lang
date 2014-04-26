@@ -17,3 +17,5 @@ if 2 <= 3:
     i = 10
     if i >= 10:
         print('factual')
+
+print(5 != 6)

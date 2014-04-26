@@ -44,6 +44,7 @@ def my_static_file(text, mimetype=None, download=False, charset='UTF-8'):
     return HTTPResponse(body, **headers)
 
 mapping = {"==": "_MATHEQ",
+           "!=": "_MATHIEQ",
            "<": "_MATHLT",
            "<=": "_MATHLTEQ",
            ">": "_MATHGT",

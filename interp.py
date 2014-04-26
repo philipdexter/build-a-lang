@@ -3,6 +3,7 @@
 import sys
 
 mapping = [("==", "_MATHEQ", "IM_MATHEQ"),
+           ("!=", "_MATHIEQ", "IM_MATHIEQ"),
            ("<", "_MATHLT", "IM_MATHLT"),
            ("<=", "_MATHLTEQ", "IM_MATHLTEQ"),
            (">", "_MATHGT", "IM_MATHGT"),
