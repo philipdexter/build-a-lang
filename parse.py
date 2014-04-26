@@ -68,8 +68,8 @@ def translate(file='hello_world.py', lang_def=None):
 
     python_code = python_code.replace('\\n', '\n')
 
+    print(lang_def['SEMDELIM'])
     if lang_def['_SEMDELIM'] == 'br':
-        print('DOING DA THING')
         python_lines = python_code.splitlines()
         out_lines = []
         indentation = 0
