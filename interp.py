@@ -59,7 +59,6 @@ for line in inp:
             sys.__stdout__.write(prompt_indent)
             sys.__stdout__.flush()
             continue
-        continue
 
     if sem['delim'] == 'ws' and indentation > 0:
         indentation = 0
