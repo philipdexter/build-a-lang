@@ -97,7 +97,7 @@ def server_interpreter():
         except:
             return 'bad language def'
     interp = interpreter(lang_def=lang)
-    return my_static_file(interp, mimetype="text/utf-8", download="interpreter.py")
+    return my_static_file(interp, mimetype="text/utf-8", download=lang['l_name'])
 
 if len(sys.argv) == 1:
     print("fail: requires at least one command line argument")

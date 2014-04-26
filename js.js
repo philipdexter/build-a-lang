@@ -18,6 +18,7 @@ load_lang = function() {
     a.forEach(function(v, i) {
 	obj.rules.push([v[0], encodeURIComponent($(v[1]).val() || $(v[1]).attr('placeholder'))]);
     });
+    obj.l_name = encodeURIComponent($("#l_name").val() || $("#l_name").attr('placeholder'));
     return JSON.stringify(obj);
 }
 
