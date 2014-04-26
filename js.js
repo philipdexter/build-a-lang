@@ -3,6 +3,12 @@ $(document).ready(function() {
         $("p.hidden").fadeIn(500);
     }
     setTimeout(showHiddenParagraphs, 1000);
+    $.ajax({
+	url: "/translate",
+	success: function(data) {
+	    $("#thacode").text(data);
+	}
+    });
     $("#code_reload").click(
 	function() {
 	    $.ajax({

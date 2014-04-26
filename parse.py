@@ -1,18 +1,18 @@
 import sys
 import simplejson as json
 
-from bottle import route, run
+from bottle import route, run, request
 
 def server():
     run(host='localhost', port='3456')
 
-def translate(file='hello_world.py'):
-    lang_def = None
-    with open('language.json') as lang_def_file:
-        lang_def = json.loads(lang_def_file.read())
+def translate(file='hello_world.py', lang_def=None):
     if lang_def is None:
-        print('error reading json language definition')
-        exit(1)
+        with open('language.json') as lang_def_file:
+            lang_def = json.loads(lang_def_file.read())
+        if lang_def is None:
+            print('error reading json language definition')
+            exit(1)
     python_code = None
     with open(file) as python_file:
         python_code = python_file.read()
@@ -35,7 +35,12 @@ def translate(file='hello_world.py'):
 @route('/translate/')
 @route('/translate/<file>')
 def server_translate(file='hello_world.py'):
-    return translate(file)
+    lang = None
+    try:
+        lang = json.loads(request.query_string)
+    except:
+        return 'bad language def'
+    return translate(file, lang=lang)
 
 if len(sys.argv) == 1:
     print("fail: requires at least one command line argument")
