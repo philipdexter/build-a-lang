@@ -41,7 +41,7 @@ def server_translate(file='hello_world.py'):
             lang = json.loads(request.query_string)
         except:
             return 'bad language def'
-    return translate(file, lang=lang)
+    return translate(file, lang_def=lang)
 
 if len(sys.argv) == 1:
     print("fail: requires at least one command line argument")
