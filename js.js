@@ -9,7 +9,8 @@ $(document).ready(function() {
 		url: "/translate",
 		success: function(data) {
 		    $("#thacode").text(data);
-		}
+		},
+		data: '{"rules":[{"python_rep": "=", "lang_rep": "#", "il_rep": "_EQOP"}]}'
 	    });
 	}
     );
