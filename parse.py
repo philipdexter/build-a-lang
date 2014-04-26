@@ -72,15 +72,15 @@ def translate(file='hello_world.py', lang_def=None):
         python_lines = python_code.splitlines()
         out_lines = []
         indentation = 0
-        for i, line in enumerate(python_lines):
+        for line in python_lines:
             if line.endswith(':'):
-                line = line[:-1] + '{'
+                line = line[:-1] + ' {'
                 indentation += 1
                 out_lines.append(line)
                 continue
             if init_spaces(line)//4 < indentation:
                 indentation -= 1
-                out_lines.append('}')
+                out_lines.append(('    ' * indentation) + '}')
             out_lines.append(line)
         python_code = '\n'.join(out_lines)
 
