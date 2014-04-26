@@ -54,6 +54,8 @@ for line in inp:
                 sys.__stdout__.write(prompt_indent)
                 sys.__stdout__.flush()
                 continue
+            else:
+                line = ''
         else:
             buildup += (' ' * indentation) + line.lstrip() + '\n'
             sys.__stdout__.write(prompt_indent)
@@ -66,6 +68,7 @@ for line in inp:
         buildup = ''
 
     if sem['delim'] == 'br':
+        buildup += line
         indentation = 0
         line = buildup
         buildup = ''
