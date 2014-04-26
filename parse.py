@@ -92,7 +92,7 @@ def translate(file='hello_world.py', lang_def=None):
                 args = m.group(2)
                 body = m.group(3)
                 to_add.append("""def cvrtd_lambda_{}({}):
-    return {}\n\n""".format(str(lambda_count), args, body))
+    return {}\n""".format(str(lambda_count), args, body))
                 line = line.replace('lambda{}:{}'.format(args, body), 'cvrtd_lambda_{}'.format(str(lambda_count)))
                 lambda_count += 1
             out_lines.append(line)
@@ -100,7 +100,7 @@ def translate(file='hello_world.py', lang_def=None):
         for i, v in enumerate(out_lines):
             if len(v) > 0 and not v.startswith('import'):
                 break
-        python_code = '\n'.join(out_lines[:i]) + '\n' + '\n'.join(to_add) + '\n'.join(out_lines[i:])
+        python_code = '\n'.join(out_lines[:i]) + '\n' + '\n'.join(to_add) + '\n' + '\n'.join(out_lines[i:])
     else:
         p = re.compile(r'\blambda\b')
         python_code = p.sub(lang_def['_SEMLAM_L'], python_code)
