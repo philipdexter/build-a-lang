@@ -1,3 +1,12 @@
+replace_it = function(data) {
+    var ndiv = document.createElement('div');
+    ndiv.innerHTML = '<pre style="width: 60%; margin-left: auto; margin-right: auto; border: 3px solid #1f8dd6; border-radius: 5px;"><code id="thacode" data-language="python">'+data+'</code></pre>';
+    Rainbow.color(ndiv, function() {
+	var p = document.getElementById('thacode').parentNode;
+	p.parentNode.replaceChild(ndiv, p);
+    });
+}
+
 a = [["]", "#_ARSCR"],
      ["[", "#_ARSCL"],
      ["(", "#_PARL"],
@@ -18,8 +27,7 @@ $(document).ready(function() {
 	    $.ajax({
 		url: "/translate",
 		success: function(data) {
-		    $("#thacode").text(data);
-		    Rainbow.color();
+		    replace_it(data);
 		},
 		data: load_lang()
 	    });
@@ -28,8 +36,7 @@ $(document).ready(function() {
     $.ajax({
 	url: "/translate",
 	success: function(data) {
-	    $("#thacode").text(data);
-	    Rainbow.color();
+	    replace_it(data);
 	},
 	data: load_lang()
     });
@@ -38,8 +45,7 @@ $(document).ready(function() {
 	    $.ajax({
 		url: "/translate",
 		success: function(data) {
-		    $("#thacode").text(data);
-		    Rainbow.color();
+		    replace_it(data);
 		},
 		data: load_lang()
 	    });
