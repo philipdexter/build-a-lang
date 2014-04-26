@@ -6,12 +6,6 @@ mapping = [("=", "_EQOP", "IM_EQOP"),
            (")", "_PARR", "IM_PARR"),
            ("(", "_PARL", "IM_PARL")]
 
-mapping = [("=", "_EQOP", "#"),
-           ("]", "_ARSCR", "%"),
-           ("[", "_ARSCL", "$"),
-           (")", "_PARR", ">"),
-           ("(", "_PARL", "<")]
-
 indentation = 0
 
 inp = sys.stdin
