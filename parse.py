@@ -70,6 +70,9 @@ def interpreter(lang_def=None):
 
     repl = lang_def['rules']
 
+    for r in repl:
+        python_code = python_code.replace('IM'+mapping[r[0]], r[1])
+
     return python_code
 
 @route('/translate')
