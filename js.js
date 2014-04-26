@@ -8,12 +8,10 @@ load_lang = function() {
     a.forEach(function(v, i) {
 	obj.rules.push([v[0], $(v[1]).val() || $(v[1]).attr('placeholder')]);
     });
-    alert(JSON.stringify(obj));
     return JSON.stringify(obj);
 }
 
 $(document).ready(function() {
-    load_lang();
     function showHiddenParagraphs() {
         $("p.hidden").fadeIn(500);
     }

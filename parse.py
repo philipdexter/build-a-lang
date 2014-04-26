@@ -37,7 +37,6 @@ def translate(file='hello_world.py', lang_def=None):
 def server_translate(file='hello_world.py'):
     lang = None
     if request.query_string is not None and len(request.query_string) > 0:
-        print(urllib.parse.unquote(request.query_string))
         try:
             lang = json.loads(urllib.parse.unquote(request.query_string))
         except:
