@@ -6,6 +6,8 @@ mapping = [("=", "_EQOP", "IM_EQOP"),
            (")", "_PARR", "IM_PARR"),
            ("(", "_PARL", "IM_PARL")]
 
+sem = {"delim": "_SEMDELIM"}
+
 indentation = 0
 
 inp = sys.stdin
@@ -25,20 +27,20 @@ for line in inp:
 
     line = line.rstrip()
 
-    if line.endswith(':'):
+    if sem['delim'] == 'ws' and line.endswith(':'):
         indentation += 1
         buildup += line + '\n'
         sys.__stdout__.write(prompt_indent)
         sys.__stdout__.flush()
         continue
 
-    if line.startswith(' '):
+    if sem['delim'] == 'ws' and line.startswith(' '):
         buildup += line + '\n'
         sys.__stdout__.write(prompt_indent)
         sys.__stdout__.flush()
         continue
 
-    if indentation > 0:
+    if sem['delim'] == 'ws' and indentation > 0:
         indentation = 0
         line = buildup
         buildup = ''

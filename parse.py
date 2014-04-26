@@ -73,6 +73,8 @@ def interpreter(lang_def=None):
     for r in repl:
         python_code = python_code.replace('IM'+mapping[r[0]], r[1])
 
+    python_code = python_code.replace('_SEMDELIM', lang_def['_SEMDELIM'])
+
     return python_code
 
 @route('/translate')
