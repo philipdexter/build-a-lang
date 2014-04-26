@@ -1,6 +1,11 @@
 import sys
 import simplejson as json
 
+from bottle import route, run
+
+def server():
+    run(host='localhost', port='3456')
+
 def translate(file='hello_world.py'):
     lang_def = None
     with open('language.json') as lang_def_file:
@@ -24,9 +29,13 @@ def translate(file='hello_world.py'):
 
     python_code = python_code.replace('\\n', '\n')
 
-    print(python_code)
+    return python_code
 
-    exit(0)
+@route('/translate')
+@route('/translate/')
+@route('/translate/<file>')
+def server_translate(file='hello_world.py'):
+    return translate(file)
 
 if len(sys.argv) == 1:
     print("fail: requires at least one command line argument")
@@ -34,9 +43,14 @@ if len(sys.argv) == 1:
 
 if sys.argv[1] == 'translate':
     if len(sys.argv) > 2:
-        translate(sys.argv[2])
+        print(translate(sys.argv[2]))
     else:
-        translate()
+        print(translate())
+    exit(0)
+
+if sys.argv[1] == 'server':
+    server()
+    exit(0)
 
 print('fail: shouldn\'t reach here')
 exit(1)
