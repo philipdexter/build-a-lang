@@ -3,16 +3,16 @@ import simplejson as json
 
 from bottle import route, run, request
 
+mapping = {"=": "_EQOP",
+           "]": "_ARSCR",
+           "[": "_ARSCL",
+           ")": "_PARR",
+           "(": "_PARL"}
+
 def server():
     run(host='localhost', port='3456')
 
 def translate(file='hello_world.py', lang_def=None):
-    if lang_def is None:
-        with open('language.json') as lang_def_file:
-            lang_def = json.loads(lang_def_file.read())
-        if lang_def is None:
-            print('error reading json language definition')
-            exit(1)
     python_code = None
     with open(file) as python_file:
         python_code = python_file.read()
@@ -23,9 +23,9 @@ def translate(file='hello_world.py', lang_def=None):
     repl = lang_def['rules']
 
     for r in repl:
-        python_code = python_code.replace(r['python_rep'], r['il_rep'])
+        python_code = python_code.replace(r[0], mapping[r[0]])
     for r in repl:
-        python_code = python_code.replace(r['il_rep'], r['lang_rep'])
+        python_code = python_code.replace(mapping[r[0]], r[1])
 
     python_code = python_code.replace('\\n', '\n')
 
