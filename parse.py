@@ -2,6 +2,7 @@ import sys
 import simplejson as json
 import urllib.parse
 import time
+import re
 
 
 from bottle import route, run, request, static_file, HTTPResponse
