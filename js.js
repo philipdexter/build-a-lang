@@ -79,7 +79,7 @@ load_lang = function() {
 
 $(document).ready(function() {
     setup_switch("#switch_hello", "hello_world.py");
-    setup_switch("#switch_for", "for_loop.py");
+    setup_switch("#switch_fib", "fib.py");
     setup_switch("#switch_functional", "functional.py");
     setup_switch("#switch_class", "class.py");
     setup_switch("#switch_math", "math_.py");
