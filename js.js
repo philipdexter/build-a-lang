@@ -33,6 +33,9 @@ $(document).ready(function() {
 	    });
 	});
     });
+    $("#i_download").click(function() {
+	$(location).attr('href', '/interpreter?' + load_lang());
+    });
     $.ajax({
 	url: "/translate",
 	success: function(data) {
