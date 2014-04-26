@@ -12,3 +12,8 @@ i = 0
 while i < 10:
     i += 1
 print(m + 12)
+
+if 2 <= 3:
+    i = 10
+    if i >= 10:
+        print('factual')

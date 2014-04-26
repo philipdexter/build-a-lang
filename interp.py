@@ -4,7 +4,9 @@ import sys
 
 mapping = [("==", "_MATHEQ", "IM_MATHEQ"),
            ("<", "_MATHLT", "IM_MATHLT"),
+           ("<=", "_MATHLTEQ", "IM_MATHLTEQ"),
            (">", "_MATHGT", "IM_MATHGT"),
+           (">=", "_MATHGEQT", "IM_MATHGTEQ"),
            ("=", "_EQOP", "IM_EQOP"),
            ("]", "_ARSCR", "IM_ARSCR"),
            ("[", "_ARSCL", "IM_ARSCL"),
