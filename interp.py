@@ -34,9 +34,9 @@ for line in inp:
         sys.__stdout__.flush()
         continue
 
-    if sem['delim'] == 'br' and line.endswith('{'):
+    if sem['delim'] == 'br' and line.endswith('{') and not line.startswith('}'):
+        buildup += (' ' * indentation) + line[:-1].lstrip() + ':' + '\n'
         indentation += 1
-        buildup += line[:-1] + ':' + '\n'
         sys.__stdout__.write(prompt_indent)
         sys.__stdout__.flush()
         continue
@@ -50,6 +50,13 @@ for line in inp:
     if sem['delim'] == 'br' and indentation > 0:
         if line.startswith('}'):
             indentation -= 1
+            if line.endswith('{'):
+                offset = line.index('else') - line.index('}') - 1
+                buildup += (' ' * indentation) + line[1+offset:-1] + ':' + '\n'
+                indentation += 1
+                sys.__stdout__.write(prompt_indent)
+                sys.__stdout__.flush()
+                continue
             if indentation > 0:
                 sys.__stdout__.write(prompt_indent)
                 sys.__stdout__.flush()
