@@ -6,7 +6,7 @@ load_lang = function() {
 	 [")", "#_PARR"],
 	 ["=", "#_EQOP"]]
     a.forEach(function(v, i) {
-	obj.rules.push([v[0], $(v[1]).val() || $(v[1]).attr('placeholder')]);
+	obj.rules.push([v[0], encodeURIComponent($(v[1]).val() || $(v[1]).attr('placeholder'))]);
     });
     return JSON.stringify(obj);
 }
