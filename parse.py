@@ -69,6 +69,7 @@ def translate(file='hello_world.py', lang_def=None):
     python_code = python_code.replace('\\n', '\n')
 
     if lang_def['_SEMDELIM'] == 'br':
+        print('DOING DA THING')
         python_lines = python_code.splitlines()
         out_lines = []
         indentation = 0
@@ -76,11 +77,13 @@ def translate(file='hello_world.py', lang_def=None):
             if line.endswith(':'):
                 line = line[:-1] + ' {'
                 indentation += 1
+                print('adding', line)
                 out_lines.append(line)
                 continue
             if init_spaces(line)//4 < indentation:
                 indentation -= 1
                 out_lines.append(('    ' * indentation) + '}')
+            print('adding', line)
             out_lines.append(line)
         python_code = '\n'.join(out_lines)
 
