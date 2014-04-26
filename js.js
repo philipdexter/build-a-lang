@@ -47,6 +47,7 @@ load_lang = function() {
 $(document).ready(function() {
     setup_switch("#switch_hello", "hello_world.py");
     setup_switch("#switch_for", "for_loop.py");
+    setup_switch("#switch_functional", "functional.py");
     a.forEach(function(v, i) {
 	$(v[1]).change(function() {
 	    $.ajax({
