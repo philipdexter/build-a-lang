@@ -16,7 +16,7 @@ def my_static_file(text, mimetype=None, download=False, charset='UTF-8'):
     headers['Content-Disposition'] = 'attachment; filename="%s"' % download
 
     headers['Content-Length'] = clen = len(text)
-    lm = time.strftime("%a, %d %b %Y %H:%M:%S GMT", time.gmtime(stats.st_mtime))
+    lm = time.strftime("%a, %d %b %Y %H:%M:%S GMT", time.gmtime(time.time()))
     headers['Last-Modified'] = lm
 
     body = '' if request.method == 'HEAD' else text
