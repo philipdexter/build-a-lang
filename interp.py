@@ -66,6 +66,11 @@ for line in inp:
         line = buildup
         buildup = ''
 
+    if sem['delim'] == 'br':
+        indentation = 0
+        line = buildup
+        buildup = ''
+
     try:
         r = eval(line)
         if r is not None:
