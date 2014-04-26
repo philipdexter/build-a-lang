@@ -92,6 +92,22 @@ $(document).ready(function() {
 	} else {
 	    $("#_SEMLAM_L").attr("disabled", true);
 	}
+	$.ajax({
+	    url: "/translate/"+file,
+	    success: function(data) {
+		replace_it(data);
+	    },
+	    data: load_lang()
+	});
+    });
+    $("#_SEMLAM_L").change(function() {
+	$.ajax({
+	    url: "/translate/"+file,
+	    success: function(data) {
+		replace_it(data);
+	    },
+	    data: load_lang()
+	});
     });
     a.forEach(function(v, i) {
 	$(v[1]).change(function() {
