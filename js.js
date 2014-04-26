@@ -28,9 +28,18 @@ setup_switch_radio = function(li) {
     });
 }
 
+function htmlEscape(str) {
+    return String(str)
+            .replace(/&/g, '&amp;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+}
+
 replace_it = function(data) {
     var ndiv = document.createElement('div');
-    ndiv.innerHTML = '<pre style="width: 60%; margin-left: auto; margin-right: auto; border: 3px solid #1f8dd6; border-radius: 15px;"><code id="thacode" data-language="python">'+data+'</code></pre>';
+    ndiv.innerHTML = '<pre style="width: 60%; margin-left: auto; margin-right: auto; border: 3px solid #1f8dd6; border-radius: 15px;"><code id="thacode" data-language="python">'+htmlEscape(data)+'</code></pre>';
     Rainbow.color(ndiv, function() {
 	var p = document.getElementById('thacode').parentNode;
 	p.parentNode.replaceChild(ndiv, p);
