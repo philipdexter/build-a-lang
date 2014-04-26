@@ -92,8 +92,8 @@ def translate(file='hello_world.py', lang_def=None):
                 args = m.group(2)
                 body = m.group(3)
                 to_add.append("""def cvrtd_lambda_{}({}):
-return {}""".format(str(lambda_count), args, body))
-                line = line.replace('lambda{}'.format(args), 'cvrtd_lambda_{}'.format(str(lambda_count)))
+    return {}\n\n""".format(str(lambda_count), args, body))
+                line = line.replace('lambda{}:{}'.format(args, body), 'cvrtd_lambda_{}'.format(str(lambda_count)))
                 lambda_count += 1
             out_lines.append(line)
         python_code = '\n'.join(to_add) + '\n'.join(out_lines)
