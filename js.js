@@ -50,6 +50,7 @@ a = [["]", "#_ARSCR"],
      ["[", "#_ARSCL"],
      ["(", "#_PARL"],
      [")", "#_PARR"],
+     ["==", "#_MATHEQ"],
      ["=", "#_EQOP"]]
 
 load_lang = function() {
@@ -71,6 +72,7 @@ $(document).ready(function() {
     setup_switch("#switch_for", "for_loop.py");
     setup_switch("#switch_functional", "functional.py");
     setup_switch("#switch_class", "class.py");
+    setup_switch("#switch_math", "math_.py");
     setup_switch_radio("#_SEMDELIM_WS");
     setup_switch_radio("#_SEMDELIM_BR");
     a.forEach(function(v, i) {

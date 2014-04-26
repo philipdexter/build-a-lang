@@ -43,7 +43,8 @@ def my_static_file(text, mimetype=None, download=False, charset='UTF-8'):
         return HTTPResponse(body, status=206, **headers)
     return HTTPResponse(body, **headers)
 
-mapping = {"=": "_EQOP",
+mapping = {"==": "_MATHEQ",
+           "=": "_EQOP",
            "]": "_ARSCR",
            "[": "_ARSCL",
            ")": "_PARR",
