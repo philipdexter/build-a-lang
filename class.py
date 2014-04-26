@@ -1,6 +1,6 @@
 class Code:
-    def just():
+    def just(self):
         print('just code stuff')
 
-    def maybe():
+    def maybe(self):
         print('maybe code stuff')
