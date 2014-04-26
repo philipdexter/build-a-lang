@@ -97,6 +97,9 @@ def translate(file='hello_world.py', lang_def=None):
                 lambda_count += 1
             out_lines.append(line)
         python_code = '\n'.join(to_add) + '\n'.join(out_lines)
+    else:
+        p = re.compile(r'\blambda\b')
+        python_code = p.sub(lang_def['_SEMLAM_L'], python_code)
 
     if lang_def['_SEMDELIM'] == 'br':
         python_lines = python_code.splitlines()
