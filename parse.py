@@ -1,5 +1,6 @@
 import sys
 import simplejson as json
+import urllib.parse
 
 from bottle import route, run, request
 
@@ -36,9 +37,9 @@ def translate(file='hello_world.py', lang_def=None):
 def server_translate(file='hello_world.py'):
     lang = None
     if request.query_string is not None and len(request.query_string) > 0:
-        print(request.query_string)
+        print(urllib.parse.unquote(request.query_string))
         try:
-            lang = json.loads(request.query_string)
+            lang = json.loads(urllib.parse.unquote(request.query_string))
         except:
             return 'bad language def'
     return translate(file, lang_def=lang)
