@@ -7,8 +7,8 @@ $(document).ready(function() {
 	function() {
 	    $.ajax({
 		url: "/translate",
-		done: function(data) {
-		    alert('hi');
+		success: function(data) {
+		    $("#thacode").text(data);
 		}
 	    });
 	}
