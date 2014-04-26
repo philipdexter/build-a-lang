@@ -36,10 +36,11 @@ def translate(file='hello_world.py', lang_def=None):
 @route('/translate/<file>')
 def server_translate(file='hello_world.py'):
     lang = None
-    try:
-        lang = json.loads(request.query_string)
-    except:
-        return 'bad language def'
+    if request.query_string is not None and len(request.query_string) > 0:
+        try:
+            lang = json.loads(request.query_string)
+        except:
+            return 'bad language def'
     return translate(file, lang=lang)
 
 if len(sys.argv) == 1:
