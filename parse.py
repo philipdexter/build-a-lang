@@ -3,7 +3,7 @@ import simplejson as json
 import urllib.parse
 import time
 
-from bottle import route, run, request, static_file
+from bottle import route, run, request, static_file, HTTPResponse
 
 def my_static_file(text, mimetype=None, download=False, charset='UTF-8'):
     headers = dict()
