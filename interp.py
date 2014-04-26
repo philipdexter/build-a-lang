@@ -50,7 +50,7 @@ for line in inp:
     if sem['delim'] == 'br' and indentation > 0:
         if line.startswith('}'):
             indentation -= 1
-            if indenation > 0:
+            if indentation > 0:
                 sys.__stdout__.write(prompt_indent)
                 sys.__stdout__.flush()
                 continue
