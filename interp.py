@@ -34,10 +34,31 @@ for line in inp:
         sys.__stdout__.flush()
         continue
 
+    if sem['delim'] == 'br' and line.endswith('{'):
+        indentation += 1
+        buildup += line[:-1] + ':' + '\n'
+        sys.__stdout__.write(prompt_indent)
+        sys.__stdout__.flush()
+        continue
+
     if sem['delim'] == 'ws' and line.startswith(' '):
         buildup += line + '\n'
         sys.__stdout__.write(prompt_indent)
         sys.__stdout__.flush()
+        continue
+
+    if sem['delim'] == 'br' and indentation > 0:
+        if line.startswith('}'):
+            indentation -= 1
+            if indenation > 0:
+                sys.__stdout__.write(prompt_indent)
+                sys.__stdout__.flush()
+                continue
+        else:
+            buildup += (' ' * indentation) + line.lstrip() + '\n'
+            sys.__stdout__.write(prompt_indent)
+            sys.__stdout__.flush()
+            continue
         continue
 
     if sem['delim'] == 'ws' and indentation > 0:
