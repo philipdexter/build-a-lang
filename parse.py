@@ -17,8 +17,7 @@ def translate(file='hello_world.py', lang_def=None):
     with open(file) as python_file:
         python_code = python_file.read()
     if python_code is None:
-        print('error reading python file', file)
-        exit(1)
+        return 'error reading python file ' + str(file)
 
     repl = lang_def['rules']
 
@@ -37,6 +36,7 @@ def translate(file='hello_world.py', lang_def=None):
 def server_translate(file='hello_world.py'):
     lang = None
     if request.query_string is not None and len(request.query_string) > 0:
+        print(request.query_string)
         try:
             lang = json.loads(request.query_string)
         except:
