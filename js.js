@@ -72,7 +72,7 @@ load_lang = function() {
     obj['_SEMDELIM'] = delim;
 
     obj['_SEMLAM'] = "" + $("#_SEMLAM").prop('checked');
-    obj['_SEMLAM_L'] = encodeURIComponent($("#_SEMLAM_L").val() || $("_SEMLAM_L").attr('placeholder'));
+    obj['_SEMLAM_L'] = encodeURIComponent($("#_SEMLAM_L").val() || $("#_SEMLAM_L").attr('placeholder'));
 
     return JSON.stringify(obj);
 }
