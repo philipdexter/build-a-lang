@@ -13,16 +13,13 @@ load_lang = function() {
 }
 
 $(document).ready(function() {
-    function showHiddenParagraphs() {
-        $("p.hidden").fadeIn(500);
-    }
-    setTimeout(showHiddenParagraphs, 1000);
     a.forEach(function(v, i) {
 	$(v[1]).change(function() {
 	    $.ajax({
 		url: "/translate",
 		success: function(data) {
 		    $("#thacode").text(data);
+		    Rainbow.color();
 		},
 		data: load_lang()
 	    });
@@ -32,6 +29,7 @@ $(document).ready(function() {
 	url: "/translate",
 	success: function(data) {
 	    $("#thacode").text(data);
+	    Rainbow.color();
 	},
 	data: load_lang()
     });
@@ -41,6 +39,7 @@ $(document).ready(function() {
 		url: "/translate",
 		success: function(data) {
 		    $("#thacode").text(data);
+		    Rainbow.color();
 		},
 		data: load_lang()
 	    });
