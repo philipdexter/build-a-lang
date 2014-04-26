@@ -21,7 +21,8 @@ $(document).ready(function() {
 	url: "/translate",
 	success: function(data) {
 	    $("#thacode").text(data);
-	}
+	},
+	data: load_lang()
     });
     $("#code_reload").click(
 	function() {
