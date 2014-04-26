@@ -2,7 +2,8 @@
 
 import sys
 
-mapping = [("=", "_EQOP", "IM_EQOP"),
+mapping = [("==", "_MATHEQ", "IM_MATHEQ"),
+           ("=", "_EQOP", "IM_EQOP"),
            ("]", "_ARSCR", "IM_ARSCR"),
            ("[", "_ARSCL", "IM_ARSCL"),
            (")", "_PARR", "IM_PARR"),
