@@ -95,7 +95,7 @@ def translate(file='hello_world.py', lang_def=None):
     return {}\n""".format(str(lambda_count), args[1:], body))
                 line = line.replace('lambda{}:{}'.format(args, body), 'cvrtd_lambda_{}'.format(str(lambda_count)))
                 lambda_count += 1
-            out_lines.append(line)nnn
+            out_lines.append(line)
         if len(to_add) > 0:
             i = 0
             for i, v in enumerate(out_lines):
