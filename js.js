@@ -71,7 +71,7 @@ load_lang = function() {
     var delim = $("input[name='_SEMDELIM']:checked").val();
     obj['_SEMDELIM'] = delim;
 
-    obj['_SEMLAM'] = $("#_SEMLAM").prop('checked');
+    obj['_SEMLAM'] = "" + $("#_SEMLAM").prop('checked');
     obj['_SEMLAM_L'] = encodeURIComponent($("#_SEMLAM_L").val() || $("_SEMLAM_L").attr('placeholder'));
 
     return JSON.stringify(obj);
