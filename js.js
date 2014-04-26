@@ -52,10 +52,10 @@ a = [["]", "#_ARSCR"],
      [")", "#_PARR"],
      ["==", "#_MATHEQ"],
      ["!=", "#_MATHIEQ"],
-     ["<", "#_MATHLT"],
      ["<=", "#_MATHLTEQ"],
-     [">", "#_MATHGT"],
      [">=", "#_MATHGTEQ"],
+     ["<", "#_MATHLT"],
+     [">", "#_MATHGT"],
      ["=", "#_EQOP"]]
 
 load_lang = function() {

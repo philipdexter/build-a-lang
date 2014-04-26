@@ -45,10 +45,10 @@ def my_static_file(text, mimetype=None, download=False, charset='UTF-8'):
 
 mapping = {"==": "_MATHEQ",
            "!=": "_MATHIEQ",
-           "<": "_MATHLT",
            "<=": "_MATHLTEQ",
-           ">": "_MATHGT",
            ">=": "_MATHGTEQ",
+           "<": "_MATHLT",
+           ">": "_MATHGT",
            "=": "_EQOP",
            "]": "_ARSCR",
            "[": "_ARSCL",
