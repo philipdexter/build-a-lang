@@ -56,6 +56,8 @@ a = [["]", "#_ARSCR"],
      [">=", "#_MATHGTEQ"],
      ["<", "#_MATHLT"],
      [">", "#_MATHGT"],
+     ["+", "#_MATHPL"],
+     ["-", "#_MATHMI"],
      ["=", "#_EQOP"]]
 
 load_lang = function() {
