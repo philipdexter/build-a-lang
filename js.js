@@ -93,7 +93,7 @@ $(document).ready(function() {
 	    $("#_SEMLAM_L").attr("disabled", true);
 	}
 	$.ajax({
-	    url: "/translate/"+file,
+	    url: "/translate/"+selected_file,
 	    success: function(data) {
 		replace_it(data);
 	    },
@@ -102,7 +102,7 @@ $(document).ready(function() {
     });
     $("#_SEMLAM_L").change(function() {
 	$.ajax({
-	    url: "/translate/"+file,
+	    url: "/translate/"+seleted_file,
 	    success: function(data) {
 		replace_it(data);
 	    },
