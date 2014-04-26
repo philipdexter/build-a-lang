@@ -1,7 +1,10 @@
+selected_file = "hello_world.py"
+
 setup_switch = function(li, file) {
     $(li).click(function() {
 	$(".pure-menu-selected").removeClass("pure-menu-selected");
 	$(li).addClass("pure-menu-selected");
+	selected_file = file;
 	$.ajax({
 	    url: "/translate/"+file,
 	    success: function(data) {
@@ -42,7 +45,7 @@ $(document).ready(function() {
     a.forEach(function(v, i) {
 	$(v[1]).change(function() {
 	    $.ajax({
-		url: "/translate",
+		url: "/translate/"+selected_file,
 		success: function(data) {
 		    replace_it(data);
 		},
@@ -54,7 +57,7 @@ $(document).ready(function() {
 	$(location).attr('href', '/interpreter?' + load_lang());
     });
     $.ajax({
-	url: "/translate",
+	url: "/translate/"+selected_file,
 	success: function(data) {
 	    replace_it(data);
 	},
@@ -63,7 +66,7 @@ $(document).ready(function() {
     $("#code_reload").click(
 	function() {
 	    $.ajax({
-		url: "/translate",
+		url: "/translate/"+selected_file,
 		success: function(data) {
 		    replace_it(data);
 		},
