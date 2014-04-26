@@ -1,0 +1,19 @@
+{
+    "rules": [
+	{"python_rep": "[",
+	 "lang_rep": "!",
+	 "il_rep": "_ARSCL"},
+	{"python_rep": "]",
+	 "lang_rep": "@",
+	 "il_rep": "_ARSCR"},
+	{"python_rep": "=",
+	 "lang_rep": "#",
+	 "il_rep": "_EQOP"},
+	{"python_rep": "(",
+	 "lang_rep": "<",
+	 "il_rep": "_PARL"},
+	{"python_rep": ")",
+	 "lang_rep": ">",
+	 "il_rep": "_PARR"}
+	]
+}
