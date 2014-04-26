@@ -1,6 +1,5 @@
 load_lang = function() {
     obj = {rules:[]};
-    alert($("#_PARR").getText());
     a = [["]", "#_ARSCR"],
 	 ["[", "#_ARSCL"],
 	 ["(", "#_PARL"],
