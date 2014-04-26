@@ -27,7 +27,7 @@ $(document).ready(function() {
 		data: load_lang()
 	    });
 	});
-    }
+    });
     $.ajax({
 	url: "/translate",
 	success: function(data) {
