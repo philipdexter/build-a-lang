@@ -100,7 +100,7 @@ def translate(file='hello_world.py', lang_def=None):
         for i, v in enumerate(out_lines):
             if len(v) > 0 and not v.startswith('import'):
                 break
-        python_code = '\n'.join(out_lines[:i]) + '\n'.join(to_add) + '\n'.join(out_lines[i:])
+        python_code = '\n'.join(out_lines[:i]) + '\n' + '\n'.join(to_add) + '\n'.join(out_lines[i:])
     else:
         p = re.compile(r'\blambda\b')
         python_code = p.sub(lang_def['_SEMLAM_L'], python_code)
