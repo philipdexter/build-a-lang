@@ -95,13 +95,13 @@ def translate(file='hello_world.py', lang_def=None):
     return {}\n""".format(str(lambda_count), args[1:], body))
                 line = line.replace('lambda{}:{}'.format(args, body), 'cvrtd_lambda_{}'.format(str(lambda_count)))
                 lambda_count += 1
-            out_lines.append(line)
+            out_lines.append(line)nnn
         if len(to_add) > 0:
             i = 0
             for i, v in enumerate(out_lines):
                 if len(v) > 0 and not v.startswith('import'):
                     break
-            python_code = '\n'.join(out_lines[:i]) + '\n' + ''.join(to_add) + '\n' + '\n'.join(out_lines[i:])
+            python_code = '\n'.join(out_lines[:i]) + '\n' + '\n'.join(to_add) + '\n' + '\n'.join(out_lines[i:])
         else:
             python_code = '\n'.join(out_lines)
     else:
