@@ -3,6 +3,7 @@ import simplejson as json
 import urllib.parse
 import time
 
+
 from bottle import route, run, request, static_file, HTTPResponse
 
 def init_spaces(s):
@@ -76,8 +77,25 @@ def translate(file='hello_world.py', lang_def=None):
 
     python_code = python_code.replace('\\n', '\n')
 
-    if lang_def['_SEMLAM'] == 'true':
-        print('SEMLAM')
+    if lang_def['_SEMLAM'] != 'true':
+        to_add = []
+        python_lines = python_code.splitlines()
+        out_lines = []
+        lambda_count = 1
+        for line in python_lines:
+            inx = line.find('lambda')
+            if inx != -1:
+                p = re.compile(r'(.*)lambda([^:]*):([^:\),]+)')
+                m = p.match(line)
+                before = m.group(1)
+                args = m.group(2)
+                body = m.group(3)
+                to_add.append("""def cvrtd_lambda_{}({}):
+return {}""".format(str(count), args, body))
+                line = line.replace('lambda{}'.format(args), 'cvrtd_lambda_{}'.format(str(count)))
+                count += 1
+            out_lines.append(line)
+        python_code = '\n'.join(to_add) + '\n'.join(out_lines)
 
     if lang_def['_SEMDELIM'] == 'br':
         python_lines = python_code.splitlines()
