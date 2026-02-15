@@ -170,6 +170,14 @@ def server_interpreter():
     download_name = lang['l_name'] + '.py'
     return my_static_file(interp, mimetype="text/utf-8", download=download_name)
 
+@route('/')
+def server_root():
+    return static_file('index.html', root='.')
+
+@route('/<filepath:path>')
+def server_static(filepath):
+    return static_file(filepath, root='.')
+
 if len(sys.argv) == 1:
     print("fail: requires at least one command line argument")
     exit(1)
