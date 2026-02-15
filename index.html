@@ -8,7 +8,7 @@
     <title>Build-A-Lang Workshop</title>
 
 
-    <link rel="stylesheet" href="https://yui.yahooapis.com/pure/0.4.2/pure.css">
+    <link rel="stylesheet" href="vendor/pure.min.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
     <!--[if lte IE 8]>
@@ -28,9 +28,8 @@
 	<script src="jquery.js"></script>
 	<script src="rainbow-custom.min.js"></script>
 	<script src="js.js"></script>
-	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+	<link rel="stylesheet" href="vendor/font-awesome.min.css">
 	<link rel="stylesheet" href="css.css">
-	</script>
   </head>
   <body>
 
@@ -186,12 +185,11 @@
 
     </div>
 
-    <script src="https://yui.yahooapis.com/3.14.1/build/yui/yui.js"></script>
     <script>
-      YUI().use('node-base', 'node-event-delegate', function (Y) {
-      Y.one('body').delegate('click', function (e) {
-      e.preventDefault();
-      }, 'a[href="#"]');
+      document.addEventListener('click', function (e) {
+        var t = e.target;
+        while (t && t.tagName !== 'A') t = t.parentNode;
+        if (t && t.getAttribute('href') === '#') e.preventDefault();
       });
     </script>
 
