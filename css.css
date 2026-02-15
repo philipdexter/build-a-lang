@@ -46,3 +46,27 @@ pre .entity.function, pre .support.css-property, pre .selector {
 pre .keyword, pre .storage {
     color: #b294bb; /* purple */
 }
+
+/* Compatibility styles for legacy Pure 0.4 menu markup used in index.html */
+.pure-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.pure-menu.pure-menu-horizontal ul li {
+    display: inline-block;
+}
+
+.pure-menu.pure-menu-horizontal ul li a {
+    display: block;
+    padding: 0.4em 0.8em;
+    text-decoration: none;
+    color: #1f8dd6;
+}
+
+.pure-menu.pure-menu-horizontal .pure-menu-selected a {
+    font-weight: 700;
+    color: #34495e;
+    border-bottom: 2px solid #1f8dd6;
+}
